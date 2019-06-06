@@ -21,9 +21,11 @@ export class PersonsListComponent implements OnInit {
     private router: Router
   ) {
     this.personForm = this.createFormGroup();
+    console.log('constructor');
   }
 
   ngOnInit() {
+    console.log('ngonitinit');
     this.initializeForm();
   }
 
