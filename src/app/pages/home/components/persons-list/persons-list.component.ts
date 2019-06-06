@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IPerson } from 'src/app/models/person.interface';
 import { PersonService } from 'src/app/services/person/person.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-persons-list',
@@ -16,7 +17,8 @@ export class PersonsListComponent implements OnInit {
 
   constructor(
     private personService: PersonService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.personForm = this.createFormGroup();
   }
@@ -87,5 +89,9 @@ export class PersonsListComponent implements OnInit {
         this.persons = personsList;
       }
     });
+  }
+
+  onAddNewPersonClick() {
+    this.router.navigate(['/add-person']); // define your component where you want to go
   }
 }

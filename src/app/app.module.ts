@@ -9,13 +9,15 @@ import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { AboutComponent } from './pages/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddPersonComponent } from './pages/add-person/add-person.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonsListComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    AddPersonComponent
   ],
   imports: [
     BrowserModule,

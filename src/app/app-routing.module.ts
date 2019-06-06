@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './services/auth-guard/auth-guard.service';
 import { AboutComponent } from './pages/about/about.component';
+import { AddPersonComponent } from './pages/add-person/add-person.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
@@ -16,8 +17,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'add-person',
+    component: AddPersonComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
-    component: HomeComponent
+    redirectTo: ''
   }
 ];
 

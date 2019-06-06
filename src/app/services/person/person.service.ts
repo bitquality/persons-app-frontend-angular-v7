@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class PersonService {
   // private serviceBaseUrl = 'http://localhost:8090/'; // local url
-  private serviceBaseUrl = 'https://bmo-persons-app-mw.herokuapp.com/'; // heroku url
+  private serviceBaseUrl = 'https://persons-app-middleware.herokuapp.com/'; // heroku url
   simpleHttpOptions: any;
+  httpHeaders: HttpHeaders = new HttpHeaders();
 
   constructor(private http: HttpClient) {
     this.simpleHttpOptions = {
@@ -25,6 +26,16 @@ export class PersonService {
   getPersons(): Observable<IPerson[]> {
     return this.http.get<IPerson[]>(
       `${this.serviceBaseUrl}/api/persons/v1/all`
+    );
+  }
+
+  addNewPerson(personRequest) {
+    let httpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.append('content-type', 'application/json');
+    return this.http.post(
+      `${this.serviceBaseUrl}/api/persons/v1/add`,
+      personRequest,
+      { headers: httpHeaders }
     );
   }
 

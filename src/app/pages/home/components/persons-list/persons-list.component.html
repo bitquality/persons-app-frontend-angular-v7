@@ -1,34 +1,35 @@
-<div class="container">
-  <div class="col-3 pull-left">
+<div class="container-fluid">
+  <div>
     <h2>
       Persons
     </h2>
   </div>
-  <div class="row">
-    <div class="col-9 pull-right">
-      <form [formGroup]="personForm">
-        <div class="row">
-          <div class="col-6">
-            <div class="row first-name-filtre">
-              <div class="col-5"><span>Filter: </span></div>
-              <div class="col-7">
-                <select formControlName="personNameFilterControl">
-                  <option
-                    [value]="name"
-                    *ngFor="let name of personFilterFields"
-                  >
-                    {{ name }}</option
-                  >
-                </select>
-              </div>
+  <div class="form-row">
+    <form [formGroup]="personForm" class="mt-3">
+      <div class="row">
+        <div class="col-sm-5 col-md-4">
+          <div class="row align-items-center">
+            <div class="col-md-3">
+              <label>Filter:</label>
+            </div>
+            <div class="col-md-9">
+              <select
+                class="form-control ml-3"
+                formControlName="personNameFilterControl"
+              >
+                <option [value]="name" *ngFor="let name of personFilterFields">
+                  {{ name }}</option
+                >
+              </select>
             </div>
           </div>
-          <div class="col-6">
-            <div class="row first-name-filtre">
-              <div class="col-5"><span>By </span></div>
-
+        </div>
+        <div class="col-sm-5 col-md-4">
+          <div class="form-row align-items-center">
+            <div class="col-md-3"><label>By:</label></div>
+            <div class="col-md-9">
               <input
-                class="col-7"
+                class="form-control"
                 type="text"
                 formControlName="personName"
                 placeholder="Enter name"
@@ -36,20 +37,30 @@
             </div>
           </div>
         </div>
-        <button
-          type="submit"
-          [disabled]="personForm.pristine"
-          (click)="onSubmitFilterResults()"
-        >
-          Submit
-        </button>
-        <button type="reset" (click)="onResetFilterResults()">
-          Reset
-        </button>
-      </form>
-    </div>
+        <div class="col-sm-5 col-md-4">
+          <div class="form-row align-items-center">
+            <button
+              type="button"
+              class="btn btn-primary mr-1"
+              [disabled]="personForm.pristine"
+              (click)="onSubmitFilterResults()"
+            >
+              Submit
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="onResetFilterResults()"
+            >
+              Reset Filter
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="card">
+  <div class="card mt-5">
     <div class="card-body">
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -64,16 +75,12 @@
             <td>{{ person.id }}</td>
             <td>{{ person.firstName }}</td>
             <td>{{ person.lastName }}</td>
-
-            <!-- <td>
-            <a
-              href="mailto:{{ user.email }}"
-              >{{ person.firstName person.lastName }}</a
-            >
-          </td> -->
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+  <button type="button" class="btn btn-info" (click)="onAddNewPersonClick()">
+    Add New Person
+  </button>
 </div>
