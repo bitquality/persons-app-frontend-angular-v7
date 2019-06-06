@@ -1,12 +1,14 @@
 # Persons App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
+App is hosted in Heroku at : https://persons-app.herokuapp.com/
 
-# Playing at Heroku
+# Front Source Code
 
-After idle for a while, Heroku falls asleep and internal memory is reseted.
+https://github.com/bitquality/persons-app-frontend-angular-v7
 
-- https://persons-app.herokuapp.com/
+# Backend Source Code
+
+https://github.com/bitquality/persons-service-springbootmvc-mw
 
 # Heroku tips
 
