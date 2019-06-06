@@ -49,5 +49,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Angular CLI commands
 
 Create angular workspace/folder, initial app and init git - ng new persons-app-v7
+
 Build and open browser - ng serve --open
+
 Create a new component called persons-list- ng generate component persons-list
