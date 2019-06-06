@@ -91,6 +91,11 @@ export class PersonsListComponent implements OnInit {
         this.persons = personsList;
       }
     });
+
+    this.personForm = this.formBuilder.group({
+      personNameFilterControl: this.personFilterFields[0],
+      personName: ''
+    });
   }
 
   onAddNewPersonClick() {
